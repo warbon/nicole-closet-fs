@@ -4,19 +4,18 @@
     <router-view />
   </v-fade-transition> -->
         <div>
-         <example-component />
-                <router-view />
+         <main-layout />
       </div>
 
 </template>
 
 <script>
-import ExampleComponent from './components/ExampleComponent.vue'
+import MainLayout from './components/MainLayout.vue'
   // Styles
   //import '@/styles/overrides.sass'
 
   export default {
-  components: { ExampleComponent },
+  components: { MainLayout },
     name: 'App',
     metaInfo: {
       title: 'Nicole Closet',
