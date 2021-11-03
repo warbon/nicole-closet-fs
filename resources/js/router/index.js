@@ -1,6 +1,10 @@
 // Imports
 import Vue from 'vue'
 import Router from 'vue-router'
+import Home from '../components/Home.vue'
+import NewArrivals from '../components/NewArrivals.vue'
+import Category from '../components/Category.vue'
+import About from '../components/About.vue'
 
 Vue.use(Router)
 
@@ -14,7 +18,26 @@ const router = new Router({
     return { x: 0, y: 0 }
   },
   routes: [
-   
+    {
+      path: '/',
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/NewArrivals',
+      name: 'NewArrivals',
+      component: NewArrivals
+    },
+    {
+      path: '/Category',
+      name: 'Category',
+      component: Category
+    },
+    {
+      path: '/About',
+      name: 'About',
+      component: About
+    }
   ],
 })
 
