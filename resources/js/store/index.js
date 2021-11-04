@@ -4,12 +4,12 @@ import Vuex from 'vuex'
 //import pathify from '@/plugins/vuex-pathify'
 
 // Modules
-//import * as modules from './modules'
+import * as modules from './modules'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-//   modules,
+   modules,
 //   plugins: [
 //     pathify.plugin,
 //   ],

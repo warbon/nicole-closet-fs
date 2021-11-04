@@ -3,7 +3,7 @@
     <v-app-bar
       app
       absolute
-      color="#FF4081"
+      color="#FF80AB"
       dark
       shrink-on-scroll
       prominent
@@ -75,7 +75,7 @@
 
     <v-main  id="scrolling-techniques-3" class="overflow-y-auto" style="height:500px">
     <v-container >
-       <router-view ></router-view>
+       <router-view :key="$route.fullPath"></router-view>
       </v-container>
     </v-main>
   </v-app>

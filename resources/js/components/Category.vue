@@ -81,33 +81,29 @@
 </template>
 
 <script>
-    import axios from 'axios'
+    import { mapState, mapActions } from 'vuex'
 
     export default {
     name: 'Category',
     data: () => ({
-      products: [],
-      categories: [],
+      // products: [],
+      // categories: [],
       show: false
     }),
-    created () {
-      axios.get('api/products')
-            .then((response) => {
-               this.products = response.data.data
-               console.log('Products', this.products)
-            })
-            .catch((error) => {
-              console.log(error)
-            })
-      axios.get('api/categories')
-            .then((response) => {
-               this.categories = response.data.data
-               console.log('Categories', this.categories)
-            })
-            .catch((error) => {
-              console.log(error)
-            })
+    computed: {
+      ...mapState({
+        categories: state => state.category.categories,
+        products: state => state.product.products,
+      })
     },
+    created () {
+      this.getCategories()
+      this.getProducts()
+    },
+    methods: {
+      ...mapActions('category', ['getCategories']),
+      ...mapActions('product', ['getProducts'])
+    }
   }
 
 

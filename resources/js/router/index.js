@@ -44,6 +44,7 @@ const router = new Router({
       name: 'Products',
       component: Products
     }
+    
   ],
 })
 

@@ -1,29 +1,45 @@
 <template>
-    <v-card>
+    <v-card flat>
         <v-card-title>
             Product Management
         </v-card-title>
         <v-card-subtitle>
-            New Product
+           {{ title }}
         </v-card-subtitle>
-
-
         <v-divider/>
-        <v-card-text>
-            Create form here...
-        </v-card-text>
+         <product-list v-if="isActionList" @addProductClicked="addProductClicked"/>
+         <product-create v-if="isActionAdd" @productListClicked="productListClicked"/>
          <v-divider/>
         <v-card-actions>
-            <v-btn>
+            <!-- <v-btn>
                 Save
-            </v-btn>
+            </v-btn> -->
         </v-card-actions>
     </v-card>
 </template>
 
 <script>
+import ProductCreate from './ProductCreate.vue'
     export default {
-        name: 'Products'
+  components: { ProductCreate },
+        name: 'Products',
+        data: () => ({
+            isActionList: true,
+            isActionAdd: false,
+            title: 'Product List'
+        }),
+        methods: {
+            addProductClicked () {
+                this.isActionList = false
+                this.isActionAdd = true
+                this.title = 'New Product'
+            },
+            productListClicked () {
+                this.isActionList = true
+                this.isActionAdd = false
+                this.title = 'Product List'
+            }
+        }
     }
 </script>
 
