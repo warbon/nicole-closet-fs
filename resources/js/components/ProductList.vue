@@ -1,12 +1,11 @@
-<template>
-    <div>
-
-    </div>
+v-<template>
+    <v-container>
+    </v-container>
 </template>
 
 <script>
     export default {
-        name: 'CreateProduct'
+        
     }
 </script>
 

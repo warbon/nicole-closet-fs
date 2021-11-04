@@ -3,17 +3,17 @@
       <v-row dense>
           <template v-for="category in categories">
             <v-col
-              :key="category"
+              :key="category.id"
               class="mt-2"
               cols="12"
             >
-              <strong>{{ category }}</strong>
+              <strong>{{ category.name }}</strong>
             </v-col>
             
-          <template  v-for="p in products">
+          <template v-for="product in products">
             <v-col
-              v-if="p.category === category"
-              :key="p.id"
+              v-if="product.category_id === category.id"
+              :key="`${category.id}${product.id}`"
               cols="12"
               md="3"
             >
@@ -23,7 +23,7 @@
                 height="400"
               >
                 <v-img
-                  :src="p.image"
+                  :src="product.image_url"
                   height="200px"
                   class="ma-2"
                   contain
@@ -38,10 +38,10 @@
                 </v-card-subtitle> -->
 
                 <v-card-subtitle>
-                      {{ p.title }}
+                      {{ product.name }}
                     </v-card-subtitle>
                     <v-card-text>
-                      Price: {{ p.price}}
+                      Price: {{ product.unit_price }}
                     </v-card-text>
                 
                       <v-card-actions>
@@ -91,17 +91,17 @@
       show: false
     }),
     created () {
-      axios.get('https://fakestoreapi.com/products')
+      axios.get('api/products')
             .then((response) => {
-               this.products = response.data
+               this.products = response.data.data
                console.log('Products', this.products)
             })
             .catch((error) => {
               console.log(error)
             })
-      axios.get('https://fakestoreapi.com/products/categories')
+      axios.get('api/categories')
             .then((response) => {
-               this.categories = response.data
+               this.categories = response.data.data
                console.log('Categories', this.categories)
             })
             .catch((error) => {

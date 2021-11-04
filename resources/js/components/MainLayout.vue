@@ -37,7 +37,10 @@
         <v-icon>mdi-heart</v-icon>
       </v-btn> -->
 
-      <v-btn icon>
+      <v-btn 
+        icon
+        :to="{ name: 'Products' }"
+      >
         <v-icon>mdi-dots-vertical</v-icon>
       </v-btn>
 
@@ -54,7 +57,7 @@
         <v-tab
           v-for="link in links"
           :key="link.name"
-          :to="{name: link.routeName }"
+          :to="{ name: link.routeName }"
         >
           {{ link.name }}
         </v-tab>

@@ -5,6 +5,7 @@ import Home from '../components/Home.vue'
 import NewArrivals from '../components/NewArrivals.vue'
 import Category from '../components/Category.vue'
 import About from '../components/About.vue'
+import Products from '../components/Products.vue'
 
 Vue.use(Router)
 
@@ -37,6 +38,11 @@ const router = new Router({
       path: '/About',
       name: 'About',
       component: About
+    },
+    {
+      path: '/Products',
+      name: 'Products',
+      component: Products
     }
   ],
 })

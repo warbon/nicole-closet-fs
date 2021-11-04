@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
@@ -14,7 +16,13 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return response() ->json(
+            [
+                'data' => $categories
+            ],
+            Response::HTTP_OK
+        );
     }
 
     /**
@@ -25,7 +33,28 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(
+                [
+                    'message' => $validator->errors()
+                ],
+                Response::HTTP_UNPROCESSABLE_ENTITY
+            );
+        }
+
+        $result = Category::create($request->all());
+
+        return response()->json(
+            [
+                'message' => 'Successfully Created.',
+                'data' => $result
+            ],
+            Response::HTTP_CREATED
+        );
     }
 
     /**
@@ -36,7 +65,13 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        $model = $category;
+        return response()->json(
+            [
+                'data' => $model
+            ],
+            Response::HTTP_OK
+        );
     }
 
     /**
@@ -48,7 +83,28 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(
+                [
+                    'message' => $validator->errors()
+                ],
+                Response::HTTP_UNPROCESSABLE_ENTITY
+            );
+        }
+
+        $result = $category->update($request->all());
+
+        return response()->json(
+            [
+                'message' => 'Successfully Updated.',
+                'data' => $result
+            ],
+            Response::HTTP_CREATED
+        );
     }
 
     /**
@@ -59,6 +115,14 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $result = (int)$category->delete();
+
+        return response()->json(
+            [
+                'message' => 'Successfully Deleted.',
+                'data' => $result
+            ],
+            Response::HTTP_OK
+        );
     }
 }
