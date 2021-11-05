@@ -2087,15 +2087,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
  // Styles
 //import '@/styles/overrides.sass'
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'App',
   components: {
     MainLayout: _components_MainLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  name: 'App',
   metaInfo: {
     title: 'Nicole Closet',
     // titleTemplate: '%s | Dashboard',
@@ -2137,7 +2136,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'About'
+  name: 'AboutView'
 });
 
 /***/ }),
@@ -2242,9 +2241,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'Category',
+  name: 'CategoryView',
   data: function data() {
     return {
       // products: [],
@@ -2269,6 +2270,121 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DecimalInput.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DecimalInput.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils_helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/helpers */ "./resources/js/utils/helpers.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'DecimalInput',
+  props: ['value', 'label', 'rules'],
+  data: function data() {
+    return {
+      isInputActive: false
+    };
+  },
+  computed: {
+    displayValue: {
+      get: function get() {
+        if (this.isInputActive) {
+          if (typeof this.value === 'undefined') {
+            return '';
+          }
+
+          return this.value.toString();
+        } else {
+          if (typeof this.value === 'undefined') {
+            return '';
+          }
+
+          return (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_0__.formatToDecimal)(this.value); // return this.value.toFixed(2).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, '$1,')
+        }
+      },
+      set: function set(modifiedValue) {
+        var newValue = parseFloat(modifiedValue.replace(/[^\d.]/g, ','));
+
+        if (isNaN(newValue)) {
+          newValue = '';
+        }
+
+        this.$emit('input', newValue);
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DisplayDecimal.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DisplayDecimal.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils_helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/helpers */ "./resources/js/utils/helpers.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'DisplayDecimal',
+  props: ['value', 'label'],
+  data: function data() {
+    return {
+      isInputActive: false
+    };
+  },
+  computed: {
+    displayValue: {
+      get: function get() {
+        if (isNaN(this.value)) {
+          return '0.00';
+        }
+
+        return (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_0__.formatToDecimal)(this.value);
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
@@ -2280,7 +2396,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
 //
 //
 //
@@ -2538,6 +2653,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'MainLayout',
   data: function data() {
@@ -2603,6 +2725,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2709,39 +2838,136 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'ProductCreate',
   data: function data() {
     return {
-      valid: true,
+      valid: false,
       name: '',
       nameRules: [function (v) {
         return !!v || 'Name is required';
       }, function (v) {
-        return v && v.length <= 10 || 'Name must be less than 10 characters';
+        return v && v.length <= 50 || 'Name must be less than 50 characters';
       }],
-      email: '',
-      emailRules: [function (v) {
-        return !!v || 'E-mail is required';
+      description: '',
+      descriptionRules: [function (v) {
+        return !!v || 'Description is required';
       }, function (v) {
-        return /.+@.+\..+/.test(v) || 'E-mail must be valid';
+        return v && v.length <= 250 || 'Description must be less than 250 characters';
       }],
-      select: null,
-      items: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
+      //   email: '',
+      //   emailRules: [
+      //     v => !!v || 'E-mail is required',
+      //     v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+      //   ],
+      category_id: null,
+      unit: 'pc',
+      unit_price: 0,
+      selling_price: 0,
+      minPrice: function minPrice(val) {
+        return val > 0 || 'Price must be not less than or equal to zero.';
+      },
+      quantity: 0,
+      previewPhoto: null,
+      photo: null,
       checkbox: false
     };
   },
-  methods: {
-    validate: function validate() {
-      this.$refs.form.validate();
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)({
+    flashMessage: function flashMessage(state) {
+      return state.snackbar.flashMessage;
     },
-    reset: function reset() {
-      this.$refs.form.reset();
+    snackbarShow: function snackbarShow(state) {
+      return state.snackbar.snackbarShow;
     },
-    resetValidation: function resetValidation() {
-      this.$refs.form.resetValidation();
+    products: function products(state) {
+      return state.product.products;
+    },
+    categories: function categories(state) {
+      return state.category.categories;
     }
-  }
+  })),
+  created: function created() {
+    this.getCategories();
+  },
+  methods: _objectSpread(_objectSpread(_objectSpread({
+    onFileChange: function onFileChange(e) {
+      console.log('Log E', e); //  const file = e.target.files[0];
+
+      this.photo = e;
+      this.previewPhoto = URL.createObjectURL(e);
+    },
+    saveProduct: function saveProduct() {
+      //  const config = {
+      //             headers: { 'content-type': 'multipart/form-data' }
+      //         }
+      var formData = new FormData();
+      formData.append('photo', this.photo);
+      formData.append('name', this.name);
+      formData.append('description', this.description);
+      formData.append('category_id', this.category_id);
+      formData.append('unit', this.unit);
+      formData.append('unit_price', this.unit_price);
+      formData.append('selling_price', this.selling_price);
+      formData.append('quantity', this.quantity);
+      formData.append('status', 'A');
+      formData.append('remarks', 'Test');
+      formData.append('created_by', 1);
+      formData.append('updated_by', 1);
+      this.$emit('saveProductClicked', formData); // console.log('Created', formData)
+      //  this.createProduct({ formData, config })
+      //  .then((response) => {
+      //    this.$router({ name: 'Products' })
+      //    this.SHOw_FLASH_MESSAGE(response.data.message)
+      //    // console.log('Created', response)
+      //  })
+      //  .catch((error) => {
+      //    console.log('error', error)
+      //  })
+    }
+  }, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('category', ['getCategories'])), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('product', ['createProduct'])), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('snackbar', ['SHOw_FLASH_MESSAGE']))
 });
 
 /***/ }),
@@ -2764,6 +2990,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
 //
 //
 //
@@ -2950,7 +3178,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: _objectSpread(_objectSpread(_objectSpread({
     destroyProduct: function destroyProduct() {
       this.confirmDelete = false;
-      this.deleteProduct();
+      this.$emit('deleteProductClicked', this.idToDestroy);
     },
     selectProductToDestroy: function selectProductToDestroy(id) {
       this.idToDestroy = id;
@@ -2972,7 +3200,51 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _ProductCreate_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProductCreate.vue */ "./resources/js/components/ProductCreate.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2995,18 +3267,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  components: {
-    ProductCreate: _ProductCreate_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  name: 'Products',
+  name: 'ProductsView',
   data: function data() {
     return {
       isActionList: true,
       isActionAdd: false,
-      title: 'Product List'
+      title: 'Product List',
+      timeout: 2000
     };
   },
-  methods: {
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)({
+    flashMessage: function flashMessage(state) {
+      return state.snackbar.flashMessage;
+    },
+    snackbarShow: function snackbarShow(state) {
+      return state.snackbar.snackbarShow;
+    }
+  })),
+  methods: _objectSpread(_objectSpread({
     addProductClicked: function addProductClicked() {
       this.isActionList = false;
       this.isActionAdd = true;
@@ -3016,8 +3294,37 @@ __webpack_require__.r(__webpack_exports__);
       this.isActionList = true;
       this.isActionAdd = false;
       this.title = 'Product List';
+    },
+    saveProductClicked: function saveProductClicked(formData) {
+      var _this = this;
+
+      var config = {
+        headers: {
+          'content-type': 'multipart/form-data'
+        }
+      };
+      this.createProduct({
+        formData: formData,
+        config: config
+      }).then(function () {
+        _this.isActionList = true;
+        _this.isActionAdd = false;
+
+        _this.SHOW_FLASH_MESSAGE('Success'); // console.log('Created', response)
+
+      })["catch"](function (error) {
+        console.log('error', error);
+      });
+    },
+    deleteProductClicked: function deleteProductClicked(id) {
+      this.deleteProduct(id);
+      this.getProducts();
+      this.SHOW_FLASH_MESSAGE('Delete Success');
+    },
+    closeSnackBar: function closeSnackBar() {
+      this.DESTROY_FLASH_MESSAGE();
     }
-  }
+  }, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('snackbar', ['DESTROY_FLASH_MESSAGE', 'SHOW_FLASH_MESSAGE'])), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('product', ['createProduct', 'getProducts', 'deleteProduct']))
 });
 
 /***/ }),
@@ -3515,18 +3822,22 @@ var actions = {
       }, _callee2);
     }))();
   },
-  createProduct: function createProduct(_ref3, product) {
+  createProduct: function createProduct(_ref3, _ref4) {
     var commit = _ref3.commit;
+    var formData = _ref4.formData,
+        config = _ref4.config;
     return new Promise(function (resolve, reject) {
-      axios__WEBPACK_IMPORTED_MODULE_1___default().post('api/products', product).then(function (response) {
+      console.log('formData', formData);
+      console.log('Config', config);
+      axios__WEBPACK_IMPORTED_MODULE_1___default().post('api/products', formData, config).then(function (response) {
         resolve(response);
       })["catch"](function (error) {
         reject(error);
       });
     });
   },
-  updateProduct: function updateProduct(_ref4, product) {
-    var commit = _ref4.commit;
+  updateProduct: function updateProduct(_ref5, product) {
+    var commit = _ref5.commit;
     return new Promise(function (resolve, reject) {
       axios__WEBPACK_IMPORTED_MODULE_1___default().put('api/products/' + product.id, product).then(function (response) {
         resolve(response);
@@ -3535,8 +3846,8 @@ var actions = {
       });
     });
   },
-  deleteProduct: function deleteProduct(_ref5, id) {
-    var commit = _ref5.commit;
+  deleteProduct: function deleteProduct(_ref6, id) {
+    var commit = _ref6.commit;
     return new Promise(function (resolve, reject) {
       axios__WEBPACK_IMPORTED_MODULE_1___default()["delete"]('api/products/' + id).then(function (response) {
         resolve(response);
@@ -3545,8 +3856,8 @@ var actions = {
       });
     });
   },
-  clearProduct: function clearProduct(_ref6) {
-    var commit = _ref6.commit;
+  clearProduct: function clearProduct(_ref7) {
+    var commit = _ref7.commit;
     commit('CLEAR_PRODUCT');
   } //   async searchClients ({ commit }, searchCriteria) {
   //     await api.post('search/clients', searchCriteria)
@@ -3591,8 +3902,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 var state = {
-  flashMessage: {},
-  snackbar: false
+  flashMessage: 'Test Message',
+  snackbarShow: true
 };
 var getters = {};
 var mutations = {
@@ -3601,10 +3912,11 @@ var mutations = {
   },
   DESTROY_FLASH_MESSAGE: function DESTROY_FLASH_MESSAGE(state) {
     state.flashMessage = {};
+    state.snackbarShow = false;
   },
   SHOW_FLASH_MESSAGE: function SHOW_FLASH_MESSAGE(state, data) {
     state.flashMessage = data;
-    state.snackbar = true;
+    state.snackbarShow = true;
   }
 };
 var actions = {
@@ -3615,6 +3927,10 @@ var actions = {
   destroyFlashMessage: function destroyFlashMessage(_ref2) {
     var commit = _ref2.commit;
     commit('DESTROY_FLASH_MESSAGE');
+  },
+  setShowFlashMessage: function setShowFlashMessage(_ref3, data) {
+    var commit = _ref3.commit;
+    commit('SHOW_FLASH_MESSAGE', data);
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -3624,6 +3940,84 @@ var actions = {
   actions: actions,
   getters: getters
 });
+
+/***/ }),
+
+/***/ "./resources/js/utils/helpers.js":
+/*!***************************************!*\
+  !*** ./resources/js/utils/helpers.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "leadingSlash": () => (/* binding */ leadingSlash),
+/* harmony export */   "trailingSlash": () => (/* binding */ trailingSlash),
+/* harmony export */   "wait": () => (/* binding */ wait),
+/* harmony export */   "showSnackBar": () => (/* binding */ showSnackBar),
+/* harmony export */   "formatDate": () => (/* binding */ formatDate),
+/* harmony export */   "formatToDecimal": () => (/* binding */ formatToDecimal),
+/* harmony export */   "convertToFloat": () => (/* binding */ convertToFloat),
+/* harmony export */   "abbreviateNumber": () => (/* binding */ abbreviateNumber)
+/* harmony export */ });
+function leadingSlash(str) {
+  return str.startsWith('/') ? str : '/' + str;
+}
+function trailingSlash(str) {
+  return str.endsWith('/') ? str : str + '/';
+}
+var wait = function wait(timeout) {
+  return new Promise(function (resolve) {
+    return setTimeout(resolve, timeout);
+  });
+};
+function showSnackBar(component, message) {
+  var color = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'info';
+  var timeout = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : -1;
+  component.snackbarMsg = message;
+  component.snackbar = true;
+  component.snackbarTimeout = timeout > 0 ? timeout * 1000 : timeout;
+  component.snackbarColor = color;
+}
+function formatDate(date) {
+  return date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+}
+function formatToDecimal(val) {
+  return Number(val).toFixed(2) // .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+  .replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, '$1,');
+}
+function convertToFloat(val) {
+  var fvalue = val;
+
+  if (fvalue !== '') {
+    if (fvalue.indexOf(',') !== -1) {
+      fvalue = fvalue.replace(',', '');
+    }
+
+    fvalue = parseFloat(fvalue);
+
+    while (/(\d+)(\d{3})/.test(val.toString())) {
+      fvalue = fvalue.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
+    }
+  }
+
+  return fvalue;
+}
+function abbreviateNumber(value) {
+  var newValue = value;
+  var suffixes = ['', 'K', 'M', 'B', 'T'];
+  var suffixNum = 0;
+
+  while (newValue >= 1000) {
+    newValue /= 1000;
+    suffixNum++;
+  }
+
+  newValue = newValue.toPrecision(3);
+  newValue += suffixes[suffixNum];
+  return newValue;
+}
 
 /***/ }),
 
@@ -40225,6 +40619,84 @@ component.options.__file = "resources/js/components/Category.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/DecimalInput.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/components/DecimalInput.vue ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _DecimalInput_vue_vue_type_template_id_755de338___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DecimalInput.vue?vue&type=template&id=755de338& */ "./resources/js/components/DecimalInput.vue?vue&type=template&id=755de338&");
+/* harmony import */ var _DecimalInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DecimalInput.vue?vue&type=script&lang=js& */ "./resources/js/components/DecimalInput.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _DecimalInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DecimalInput_vue_vue_type_template_id_755de338___WEBPACK_IMPORTED_MODULE_0__.render,
+  _DecimalInput_vue_vue_type_template_id_755de338___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/DecimalInput.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/DisplayDecimal.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/DisplayDecimal.vue ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _DisplayDecimal_vue_vue_type_template_id_072e4fda___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DisplayDecimal.vue?vue&type=template&id=072e4fda& */ "./resources/js/components/DisplayDecimal.vue?vue&type=template&id=072e4fda&");
+/* harmony import */ var _DisplayDecimal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DisplayDecimal.vue?vue&type=script&lang=js& */ "./resources/js/components/DisplayDecimal.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _DisplayDecimal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DisplayDecimal_vue_vue_type_template_id_072e4fda___WEBPACK_IMPORTED_MODULE_0__.render,
+  _DisplayDecimal_vue_vue_type_template_id_072e4fda___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/DisplayDecimal.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/ExampleComponent.vue":
 /*!******************************************************!*\
   !*** ./resources/js/components/ExampleComponent.vue ***!
@@ -40546,6 +41018,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/DecimalInput.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/DecimalInput.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DecimalInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DecimalInput.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DecimalInput.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DecimalInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/DisplayDecimal.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/DisplayDecimal.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DisplayDecimal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DisplayDecimal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DisplayDecimal.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DisplayDecimal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************!*\
   !*** ./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
@@ -40705,6 +41209,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Category_vue_vue_type_template_id_33972369_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Category_vue_vue_type_template_id_33972369_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Category.vue?vue&type=template&id=33972369&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Category.vue?vue&type=template&id=33972369&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/DecimalInput.vue?vue&type=template&id=755de338&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/DecimalInput.vue?vue&type=template&id=755de338& ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DecimalInput_vue_vue_type_template_id_755de338___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DecimalInput_vue_vue_type_template_id_755de338___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DecimalInput_vue_vue_type_template_id_755de338___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DecimalInput.vue?vue&type=template&id=755de338& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DecimalInput.vue?vue&type=template&id=755de338&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/DisplayDecimal.vue?vue&type=template&id=072e4fda&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/DisplayDecimal.vue?vue&type=template&id=072e4fda& ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DisplayDecimal_vue_vue_type_template_id_072e4fda___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DisplayDecimal_vue_vue_type_template_id_072e4fda___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DisplayDecimal_vue_vue_type_template_id_072e4fda___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DisplayDecimal.vue?vue&type=template&id=072e4fda& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DisplayDecimal.vue?vue&type=template&id=072e4fda&");
 
 
 /***/ }),
@@ -40873,11 +41411,11 @@ var render = function () {
     "v-card",
     { attrs: { flat: "" } },
     [
-      _c("v-card-title", [_vm._v("\n        About\n    ")]),
+      _c("v-card-title", [_vm._v("\n    About\n  ")]),
       _vm._v(" "),
       _c("v-divider"),
       _vm._v(" "),
-      _c("v-card-text", [_vm._v("\n        About Page\n    ")]),
+      _c("v-card-text", [_vm._v("\n    About Page\n  ")]),
     ],
     1
   )
@@ -40934,61 +41472,82 @@ var render = function () {
                           attrs: { cols: "12", md: "3" },
                         },
                         [
-                          _c(
-                            "v-card",
-                            {
-                              staticClass: "mx-auto",
-                              attrs: { "max-width": "344", height: "400" },
-                            },
-                            [
-                              _c("v-img", {
-                                staticClass: "ma-2",
-                                attrs: {
-                                  src: product.image_url,
-                                  height: "200px",
-                                  contain: "",
-                                },
-                              }),
-                              _vm._v(" "),
-                              _c("v-card-subtitle", [
-                                _vm._v(
-                                  "\n                  " +
-                                    _vm._s(product.name) +
-                                    "\n                "
-                                ),
-                              ]),
-                              _vm._v(" "),
-                              _c("v-card-text", [
-                                _vm._v(
-                                  "\n                  Price: " +
-                                    _vm._s(product.unit_price) +
-                                    "\n                "
-                                ),
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "v-card-actions",
-                                [
-                                  _c(
-                                    "v-btn",
-                                    {
-                                      attrs: {
-                                        color: "orange lighten-2",
-                                        text: "",
-                                      },
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                Details\n              "
+                          _c("v-hover", {
+                            scopedSlots: _vm._u(
+                              [
+                                {
+                                  key: "default",
+                                  fn: function (ref) {
+                                    var hover = ref.hover
+                                    return [
+                                      _c(
+                                        "v-card",
+                                        {
+                                          staticClass: "mx-auto",
+                                          class: { "on-hover": hover },
+                                          attrs: {
+                                            elevation: hover ? 12 : 2,
+                                            "max-width": "344",
+                                            height: "400",
+                                          },
+                                        },
+                                        [
+                                          _c("v-img", {
+                                            staticClass: "ma-2",
+                                            attrs: {
+                                              src: product.image_url,
+                                              height: "200px",
+                                              contain: "",
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _c("v-card-subtitle", [
+                                            _vm._v(
+                                              "\n                " +
+                                                _vm._s(product.name) +
+                                                "\n              "
+                                            ),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("v-card-text", [
+                                            _vm._v(
+                                              "\n                Price: " +
+                                                _vm._s(product.unit_price) +
+                                                "\n              "
+                                            ),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-card-actions",
+                                            [
+                                              _c(
+                                                "v-btn",
+                                                {
+                                                  attrs: {
+                                                    color: "orange lighten-2",
+                                                    text: "",
+                                                  },
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                  Details\n                "
+                                                  ),
+                                                ]
+                                              ),
+                                            ],
+                                            1
+                                          ),
+                                        ],
+                                        1
                                       ),
                                     ]
-                                  ),
-                                ],
-                                1
-                              ),
-                            ],
-                            1
-                          ),
+                                  },
+                                },
+                              ],
+                              null,
+                              true
+                            ),
+                          }),
                         ],
                         1
                       )
@@ -41000,6 +41559,104 @@ var render = function () {
         ],
         2
       ),
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DecimalInput.vue?vue&type=template&id=755de338&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DecimalInput.vue?vue&type=template&id=755de338& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("v-text-field", {
+        attrs: {
+          prefix: "PHP",
+          color: "success",
+          label: _vm.label,
+          rules: _vm.rules,
+        },
+        on: {
+          blur: function ($event) {
+            _vm.isInputActive = false
+          },
+          focus: function ($event) {
+            _vm.isInputActive = true
+          },
+        },
+        model: {
+          value: _vm.displayValue,
+          callback: function ($$v) {
+            _vm.displayValue = $$v
+          },
+          expression: "displayValue",
+        },
+      }),
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DisplayDecimal.vue?vue&type=template&id=072e4fda&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DisplayDecimal.vue?vue&type=template&id=072e4fda& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("v-text-field", {
+        attrs: {
+          prefix: "PHP",
+          color: "success",
+          label: _vm.label,
+          readonly: "",
+        },
+        model: {
+          value: _vm.displayValue,
+          callback: function ($$v) {
+            _vm.displayValue = $$v
+          },
+          expression: "displayValue",
+        },
+      }),
     ],
     1
   )
@@ -41174,7 +41831,7 @@ var render = function () {
                       _vm._v(" "),
                       _c("p", { staticClass: "font-weight-light" }, [
                         _vm._v(
-                          "\n               Lorem ipsum dolor sit amet, consectetur ad\n            ipiscin elit. Etiam vulputate augue vel felis gra\n            vida porta. Lorem ipsum dolor sit amet, cons\n            ectetur adipiscing elit."
+                          "\n            Lorem ipsum dolor sit amet, consectetur ad\n            ipiscin elit. Etiam vulputate augue vel felis gra\n            vida porta. Lorem ipsum dolor sit amet, cons\n            ectetur adipiscing elit."
                         ),
                         _c("br"),
                         _vm._v(
@@ -41279,7 +41936,11 @@ var render = function () {
                           key: link.name,
                           attrs: { to: { name: link.routeName } },
                         },
-                        [_vm._v("\n        " + _vm._s(link.name) + "\n      ")]
+                        [
+                          _vm._v(
+                            "\n          " + _vm._s(link.name) + "\n        "
+                          ),
+                        ]
                       )
                     }),
                     1
@@ -41406,11 +42067,20 @@ var render = function () {
     [
       _c(
         "v-card",
-        { attrs: { flat: "" } },
+        { staticClass: "pa-5", attrs: { flat: "" } },
         [
           _c(
-            "v-card-text",
-            { staticClass: "px-0" },
+            "v-form",
+            {
+              ref: "form",
+              model: {
+                value: _vm.valid,
+                callback: function ($$v) {
+                  _vm.valid = $$v
+                },
+                expression: "valid",
+              },
+            },
             [
               _c(
                 "v-row",
@@ -41419,152 +42089,179 @@ var render = function () {
                     "v-col",
                     { attrs: { cols: "12", md: "6" } },
                     [
-                      _c(
-                        "v-btn",
-                        {
-                          attrs: { color: "#FF80AB", rounded: "", dark: "" },
-                          on: {
-                            click: function () {
-                              _vm.$emit("productListClicked")
-                            },
-                          },
+                      _c("v-text-field", {
+                        attrs: {
+                          counter: 50,
+                          rules: _vm.nameRules,
+                          label: "Name",
+                          required: "",
                         },
-                        [
-                          _c("v-icon", { attrs: { left: "" } }, [
-                            _vm._v("mdi-format-list-text"),
-                          ]),
-                          _vm._v("\n               Product List\n            "),
-                        ],
-                        1
-                      ),
+                        model: {
+                          value: _vm.name,
+                          callback: function ($$v) {
+                            _vm.name = $$v
+                          },
+                          expression: "name",
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c("v-textarea", {
+                        attrs: {
+                          counter: 250,
+                          rules: _vm.descriptionRules,
+                          label: "Description",
+                          required: "",
+                        },
+                        model: {
+                          value: _vm.description,
+                          callback: function ($$v) {
+                            _vm.description = $$v
+                          },
+                          expression: "description",
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c("v-select", {
+                        attrs: {
+                          items: _vm.categories,
+                          "item-value": "id",
+                          "item-text": "name",
+                          rules: [
+                            function (v) {
+                              return !!v || "Item is required"
+                            },
+                          ],
+                          label: "Category",
+                          required: "",
+                        },
+                        model: {
+                          value: _vm.category_id,
+                          callback: function ($$v) {
+                            _vm.category_id = $$v
+                          },
+                          expression: "category_id",
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c("decimal-input", {
+                        attrs: {
+                          label: "Unit Price",
+                          rules: [_vm.minPrice(_vm.unit_price)],
+                        },
+                        model: {
+                          value: _vm.unit_price,
+                          callback: function ($$v) {
+                            _vm.unit_price = $$v
+                          },
+                          expression: "unit_price",
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c("decimal-input", {
+                        attrs: {
+                          label: "Selling Price",
+                          rules: [_vm.minPrice(_vm.selling_price)],
+                        },
+                        model: {
+                          value: _vm.selling_price,
+                          callback: function ($$v) {
+                            _vm.selling_price = $$v
+                          },
+                          expression: "selling_price",
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c("v-text-field", {
+                        attrs: { label: "Quantity", required: "" },
+                        model: {
+                          value: _vm.quantity,
+                          callback: function ($$v) {
+                            _vm.quantity = $$v
+                          },
+                          expression: "quantity",
+                        },
+                      }),
                     ],
                     1
                   ),
                   _vm._v(" "),
-                  _c("v-col", { attrs: { cols: "12", md: "6" } }),
+                  _c(
+                    "v-col",
+                    { attrs: { cols: "12", md: "6" } },
+                    [
+                      _c(
+                        "v-sheet",
+                        { staticClass: "ma-10", attrs: { outlined: "" } },
+                        [
+                          _c("v-img", {
+                            attrs: {
+                              src: _vm.previewPhoto,
+                              contain: "",
+                              height: "350",
+                            },
+                          }),
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("v-file-input", {
+                        staticClass: "ma-10",
+                        attrs: {
+                          chips: "",
+                          "show-size": "",
+                          counter: "",
+                          label: "Upload Photo",
+                        },
+                        on: { change: _vm.onFileChange },
+                      }),
+                    ],
+                    1
+                  ),
                 ],
                 1
               ),
               _vm._v(" "),
-              [
-                _c(
-                  "v-form",
-                  {
-                    ref: "form",
-                    attrs: { "lazy-validation": "" },
-                    model: {
-                      value: _vm.valid,
-                      callback: function ($$v) {
-                        _vm.valid = $$v
-                      },
-                      expression: "valid",
+              _c(
+                "v-btn",
+                {
+                  staticClass: "mr-4",
+                  attrs: {
+                    width: "200",
+                    color: "#FF80AB",
+                    rounded: "",
+                    dark: "",
+                  },
+                  on: {
+                    click: function () {
+                      _vm.$emit("productListClicked")
                     },
                   },
-                  [
-                    _c("v-text-field", {
-                      attrs: {
-                        counter: 10,
-                        rules: _vm.nameRules,
-                        label: "Name",
-                        required: "",
-                      },
-                      model: {
-                        value: _vm.name,
-                        callback: function ($$v) {
-                          _vm.name = $$v
-                        },
-                        expression: "name",
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("v-text-field", {
-                      attrs: {
-                        rules: _vm.emailRules,
-                        label: "E-mail",
-                        required: "",
-                      },
-                      model: {
-                        value: _vm.email,
-                        callback: function ($$v) {
-                          _vm.email = $$v
-                        },
-                        expression: "email",
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("v-select", {
-                      attrs: {
-                        items: _vm.items,
-                        rules: [
-                          function (v) {
-                            return !!v || "Item is required"
-                          },
-                        ],
-                        label: "Item",
-                        required: "",
-                      },
-                      model: {
-                        value: _vm.select,
-                        callback: function ($$v) {
-                          _vm.select = $$v
-                        },
-                        expression: "select",
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("v-checkbox", {
-                      attrs: {
-                        rules: [
-                          function (v) {
-                            return !!v || "You must agree to continue!"
-                          },
-                        ],
-                        label: "Do you agree?",
-                        required: "",
-                      },
-                      model: {
-                        value: _vm.checkbox,
-                        callback: function ($$v) {
-                          _vm.checkbox = $$v
-                        },
-                        expression: "checkbox",
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      {
-                        staticClass: "mr-4",
-                        attrs: { disabled: !_vm.valid, color: "success" },
-                        on: { click: _vm.validate },
-                      },
-                      [_vm._v("\n      Validate\n    ")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      {
-                        staticClass: "mr-4",
-                        attrs: { color: "error" },
-                        on: { click: _vm.reset },
-                      },
-                      [_vm._v("\n      Reset Form\n    ")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      {
-                        attrs: { color: "warning" },
-                        on: { click: _vm.resetValidation },
-                      },
-                      [_vm._v("\n      Reset Validation\n    ")]
-                    ),
-                  ],
-                  1
-                ),
-              ],
+                },
+                [
+                  _c("v-icon", { attrs: { left: "" } }, [
+                    _vm._v("\n          mdi-format-list-text\n        "),
+                  ]),
+                  _vm._v("\n        Product List\n      "),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-btn",
+                {
+                  staticClass: "mr-4",
+                  attrs: {
+                    width: "200",
+                    disabled: !_vm.valid,
+                    color: "success",
+                    rounded: "",
+                  },
+                  on: { click: _vm.saveProduct },
+                },
+                [_vm._v("\n        Save\n      ")]
+              ),
             ],
-            2
+            1
           ),
         ],
         1
@@ -41627,9 +42324,9 @@ var render = function () {
                         },
                         [
                           _c("v-icon", { attrs: { left: "" } }, [
-                            _vm._v("mdi-plus"),
+                            _vm._v("\n              mdi-plus\n            "),
                           ]),
-                          _vm._v("\n             New Product\n          "),
+                          _vm._v("\n            New Product\n          "),
                         ],
                         1
                       ),
@@ -41825,32 +42522,102 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-card",
-    { attrs: { flat: "" } },
+    "div",
     [
-      _c("v-card-title", [_vm._v("\n        Product Management\n    ")]),
+      _c(
+        "v-card",
+        { attrs: { flat: "" } },
+        [
+          _c("v-card-title", [_vm._v("\n      Product Management\n    ")]),
+          _vm._v(" "),
+          _c("v-card-subtitle", [
+            _vm._v("\n      " + _vm._s(_vm.title) + "\n    "),
+          ]),
+          _vm._v(" "),
+          _c("v-divider"),
+          _vm._v(" "),
+          _vm.isActionList
+            ? _c("product-list", {
+                on: {
+                  addProductClicked: _vm.addProductClicked,
+                  deleteProductClicked: _vm.deleteProductClicked,
+                },
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.isActionAdd
+            ? _c("product-create", {
+                on: {
+                  productListClicked: _vm.productListClicked,
+                  saveProductClicked: _vm.saveProductClicked,
+                },
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _c("v-divider"),
+          _vm._v(" "),
+          _c("v-card-actions"),
+        ],
+        1
+      ),
       _vm._v(" "),
-      _c("v-card-subtitle", [
-        _vm._v("\n       " + _vm._s(_vm.title) + "\n    "),
-      ]),
-      _vm._v(" "),
-      _c("v-divider"),
-      _vm._v(" "),
-      _vm.isActionList
-        ? _c("product-list", {
-            on: { addProductClicked: _vm.addProductClicked },
-          })
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.isActionAdd
-        ? _c("product-create", {
-            on: { productListClicked: _vm.productListClicked },
-          })
-        : _vm._e(),
-      _vm._v(" "),
-      _c("v-divider"),
-      _vm._v(" "),
-      _c("v-card-actions"),
+      _c("v-snackbar", {
+        attrs: {
+          timeout: _vm.timeout,
+          color: "transparent",
+          top: "",
+          right: "",
+        },
+        scopedSlots: _vm._u([
+          {
+            key: "action",
+            fn: function (ref) {
+              var attrs = ref.attrs
+              return [
+                _c(
+                  "v-alert",
+                  _vm._b(
+                    { attrs: { dark: "", type: "success", text: "" } },
+                    "v-alert",
+                    attrs,
+                    false
+                  ),
+                  [
+                    _vm._v(
+                      "\n        " + _vm._s(_vm.flashMessage) + "\n\n        "
+                    ),
+                    _c(
+                      "v-btn",
+                      _vm._b(
+                        {
+                          attrs: { dark: "", text: "" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.closeSnackBar()
+                            },
+                          },
+                        },
+                        "v-btn",
+                        attrs,
+                        false
+                      ),
+                      [_vm._v("\n          Close\n        ")]
+                    ),
+                  ],
+                  1
+                ),
+              ]
+            },
+          },
+        ]),
+        model: {
+          value: _vm.snackbarShow,
+          callback: function ($$v) {
+            _vm.snackbarShow = $$v
+          },
+          expression: "snackbarShow",
+        },
+      }),
     ],
     1
   )
@@ -104001,6 +104768,8 @@ var map = {
 	"./App.vue": "./resources/js/App.vue",
 	"./components/About.vue": "./resources/js/components/About.vue",
 	"./components/Category.vue": "./resources/js/components/Category.vue",
+	"./components/DecimalInput.vue": "./resources/js/components/DecimalInput.vue",
+	"./components/DisplayDecimal.vue": "./resources/js/components/DisplayDecimal.vue",
 	"./components/ExampleComponent.vue": "./resources/js/components/ExampleComponent.vue",
 	"./components/Home.vue": "./resources/js/components/Home.vue",
 	"./components/MainLayout.vue": "./resources/js/components/MainLayout.vue",

@@ -1,6 +1,6 @@
 const state = {
-    flashMessage: {},
-    snackbar: false,
+    flashMessage: 'Test Message',
+    snackbarShow: true,
   }
   
   const getters = {
@@ -12,10 +12,11 @@ const state = {
     },
     DESTROY_FLASH_MESSAGE (state) {
       state.flashMessage = {}
+      state.snackbarShow = false
     },
     SHOW_FLASH_MESSAGE (state, data) {
       state.flashMessage = data
-      state.snackbar = true
+      state.snackbarShow = true
     },
   }
   
@@ -26,6 +27,9 @@ const state = {
     destroyFlashMessage ({ commit }) {
       commit('DESTROY_FLASH_MESSAGE')
     },
+    setShowFlashMessage ({ commit }, data ) {
+      commit('SHOW_FLASH_MESSAGE', data )
+    }
   }
   
   export default {

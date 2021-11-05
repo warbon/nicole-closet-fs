@@ -13,8 +13,10 @@
               dark
               @click="() => { $emit('addProductClicked')} "
             >
-              <v-icon left>mdi-plus</v-icon>
-               New Product
+              <v-icon left>
+                mdi-plus
+              </v-icon>
+              New Product
             </v-btn>
           </v-col>
           <v-col
@@ -193,7 +195,7 @@
     methods: {
       destroyProduct () {
         this.confirmDelete = false
-        this.deleteProduct()
+        this.$emit('deleteProductClicked', this.idToDestroy)
       },
       selectProductToDestroy (id) {
         this.idToDestroy = id

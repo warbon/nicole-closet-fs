@@ -3,10 +3,9 @@
 
     <router-view />
   </v-fade-transition> -->
-        <div>
-         <main-layout />
-      </div>
-
+  <div>
+    <main-layout />
+  </div>
 </template>
 
 <script>
@@ -15,8 +14,8 @@ import MainLayout from './components/MainLayout.vue'
   //import '@/styles/overrides.sass'
 
   export default {
-  components: { MainLayout },
     name: 'App',
+  components: { MainLayout },
     metaInfo: {
       title: 'Nicole Closet',
       // titleTemplate: '%s | Dashboard',

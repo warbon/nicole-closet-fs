@@ -45,9 +45,11 @@ const actions = {
               console.log(error)
             })
   },
-  createProduct ({ commit }, product) {
+  createProduct ({ commit }, { formData, config }) {
     return new Promise((resolve, reject) => {
-      axios.post('api/products', product)
+      console.log('formData', formData)
+      console.log('Config', config)
+      axios.post('api/products', formData, config)
         .then((response) => {
           resolve(response)
         })

@@ -6,6 +6,9 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -17,6 +20,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
+        Log::info($products);
         return response() ->json(
             [
                 'data' => $products
@@ -35,7 +39,7 @@ class ProductController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'category_id' => 'required'
+        'category_id' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -46,7 +50,11 @@ class ProductController extends Controller
                 Response::HTTP_UNPROCESSABLE_ENTITY
             );
         }
-
+        //Log::info($request);
+        // $file_name = time().'_'.$request->photo->getClientOriginalName();
+        $file_name = $request->photo->getClientOriginalName();
+        $file_path = $request->photo->storeAs('uploads', $file_name, 'public');
+        $request['image_url'] = 'storage/'.$file_path;
         $result = Product::create($request->all());
 
         return response()->json(

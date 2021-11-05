@@ -24,7 +24,7 @@ class CreateProductsTable extends Migration
             $table->decimal('selling_price', 10, 2);
             $table->decimal('quantity', 6, 2);
             $table->string('status');
-            $table->string('remarks');
+            $table->string('remarks')->nullable();
             $table->foreignId('created_by')->constrained('users');
             $table->foreignId('updated_by')->constrained('users');
             $table->timestamps();

@@ -1,5 +1,8 @@
 <template>
-  <v-app id="inspire" style="height: 100px;">
+  <v-app
+    id="inspire"
+    style="height: 100px;"
+  >
     <v-app-bar
       app
       absolute
@@ -11,25 +14,25 @@
       fade-img-on-scroll
       scroll-target="#scrolling-techniques-3"
     >
-     <template v-slot:img="{ props }">
+      <template #img="{ props }">
         <v-img
           v-bind="props"
           gradient="to top right, rgba(100,115,201,.4), rgba(25,32,72,.4)"
-        ></v-img>
+        />
       </template>
 
-       <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon />
 
-        <v-spacer></v-spacer>
+      <v-spacer />
       
       <v-toolbar-title>
         <h2 class="font-weight-light">
           Nicole's Closet
         </h2>
-        </v-toolbar-title>
+      </v-toolbar-title>
 
-      <v-spacer></v-spacer>
-        <!-- <v-btn icon>
+      <v-spacer />
+      <!-- <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
 
@@ -49,19 +52,19 @@
         size="32"
       ></v-avatar> -->
 
-      <template v-slot:extension>
-      <v-tabs
-        centered
-        class="ml-n9"
-      >
-        <v-tab
-          v-for="link in links"
-          :key="link.name"
-          :to="{ name: link.routeName }"
+      <template #extension>
+        <v-tabs
+          centered
+          class="ml-n9"
         >
-          {{ link.name }}
-        </v-tab>
-      </v-tabs>
+          <v-tab
+            v-for="link in links"
+            :key="link.name"
+            :to="{ name: link.routeName }"
+          >
+            {{ link.name }}
+          </v-tab>
+        </v-tabs>
       </template>
 
      
@@ -73,9 +76,13 @@
       ></v-avatar> -->
     </v-app-bar>
 
-    <v-main  id="scrolling-techniques-3" class="overflow-y-auto" style="height:500px">
-    <v-container >
-       <router-view :key="$route.fullPath"></router-view>
+    <v-main
+      id="scrolling-techniques-3"
+      class="overflow-y-auto"
+      style="height:500px"
+    >
+      <v-container>
+        <router-view :key="$route.fullPath" />
       </v-container>
     </v-main>
   </v-app>

@@ -34,7 +34,7 @@
           >
             <h1>Welcome!</h1>
             <p class="font-weight-light">
-                 Lorem ipsum dolor sit amet, consectetur ad
+              Lorem ipsum dolor sit amet, consectetur ad
               ipiscin elit. Etiam vulputate augue vel felis gra
               vida porta. Lorem ipsum dolor sit amet, cons
               ectetur adipiscing elit.<br>
