@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -19,8 +20,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        Log::info($products);
+        $products = Product::products();
+       // Log::info($products);
         return response() ->json(
             [
                 'data' => $products
@@ -39,7 +40,7 @@ class ProductController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-        'category_id' => 'required'
+            'category_id' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -50,7 +51,7 @@ class ProductController extends Controller
                 Response::HTTP_UNPROCESSABLE_ENTITY
             );
         }
-        //Log::info($request);
+        Log::info($request);
         // $file_name = time().'_'.$request->photo->getClientOriginalName();
         $file_name = $request->photo->getClientOriginalName();
         $file_path = $request->photo->storeAs('uploads', $file_name, 'public');
@@ -74,7 +75,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $model = $product;
+        $model = $product->load('category_info', 'created_info', 'updated_info');
         return response()->json(
             [
                 'data' => $model
@@ -92,8 +93,11 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+        Log::info($request);
+        Log::info($product);
         $validator = Validator::make($request->all(), [
-            'name' => 'required'
+            'name' => 'required',
+            'category_id' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -105,6 +109,14 @@ class ProductController extends Controller
             );
         }
 
+        if ($request->photo !== 'undefined') {
+            Storage::disk('public')->delete(Str::remove('storage/', $product->image_url));
+            $file_name = $request->photo->getClientOriginalName();
+            $file_path = $request->photo->storeAs('uploads', $file_name, 'public');
+            $request['image_url'] = 'storage/'.$file_path;
+        }
+
+ 
         $result = $product->update($request->all());
 
         return response()->json(
@@ -124,6 +136,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        Storage::disk('public')->delete(Str::remove('storage/', $product->image_url));
         $result = (int)$product->delete();
 
         return response()->json(

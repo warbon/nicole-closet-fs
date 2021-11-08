@@ -29,7 +29,8 @@
                   :src="product.image_url"
                   height="200px"
                   class="ma-2"
-                  contain
+                  :class="{ 'on-hover': hover }"
+                  :elevation="hover ? 12 : 2"
                 />
 
                 <!-- <v-card-title>
@@ -51,13 +52,31 @@
                   <v-btn
                     color="orange lighten-2"
                     text
+                    :to="{ name: 'Product', params: { id: product.id }}"
                   >
                     Details
                   </v-btn>
 
-                <!-- <v-spacer></v-spacer>
+                  <v-spacer />
 
-                  <v-btn
+                  <v-chip
+                    v-if="product.new_arrival"
+                    color="orange"
+                    text-color="white"
+                    small
+                  >
+                    New Arrival
+                    <v-icon
+                      right
+                      small
+                    >
+                      mdi-star
+                    </v-icon>
+                  </v-chip>
+
+
+
+                  <!--   <v-btn
                     icon
                     @click="show = !show"
                   >

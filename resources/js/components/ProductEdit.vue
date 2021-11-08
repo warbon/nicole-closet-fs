@@ -19,12 +19,13 @@
             md="6"
           >
             <v-switch
-              v-model="new_arrival"
+              v-model="product.new_arrival"
               inset
               label="New Arrival"
             />
+
             <v-text-field
-              v-model="name"
+              v-model="product.name"
               :counter="100"
               :rules="nameRules"
               label="Name"
@@ -32,7 +33,7 @@
             />
 
             <v-textarea
-              v-model="description"
+              v-model="product.description"
               :counter="300"
               :rules="descriptionRules"
               label="Description"
@@ -40,7 +41,7 @@
             />
 
             <v-select
-              v-model="category_id"
+              v-model="product.category_id"
               :items="categories"
               item-value="id"
               item-text="name"
@@ -50,26 +51,27 @@
             />
 
             <decimal-input
-              v-model="unit_price"
+              v-model="product.unit_price"
               :label="'Unit Price'"
-              :rules="[minPrice(unit_price)]"
+              :rules="[minPrice(product.unit_price)]"
             />
             <decimal-input
-              v-model="selling_price"
+              v-model="product.selling_price"
               :label="'Selling Price'"
-              :rules="[minPrice(selling_price)]"
+              :rules="[minPrice(product.selling_price)]"
             />
 
             <v-text-field
-              v-model="quantity"
+              v-model="product.quantity"
               label="Quantity"
               required
             />
 
             <v-textarea
-              v-model="remarks"
+              v-model="product.remarks"
               :counter="300"
               label="Remarks"
+              required
             />
           </v-col>
 
@@ -119,14 +121,14 @@
                 color="success"
                 rounded
                 class="mr-4"
-                @click="saveProduct"
+                @click="updateProduct"
               >
                 <v-icon
                   left
                 >
                   mdi-content-save-check
                 </v-icon>
-                Save
+                Update
               </v-btn>
             </div>
           </v-col>
@@ -137,11 +139,18 @@
 </template>
 
 <script>
-import { mapState, mapActions, mapMutations } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
-    export default {
-        name: 'ProductCreate',
-        data: () => ({
+export default {
+    name: 'ProductEdit',
+    props: {
+        product: {
+            type: Object,
+            required: true
+        }
+    },
+
+    data: () => ({
       valid: false,
       name: '',
       nameRules: [
@@ -151,7 +160,7 @@ import { mapState, mapActions, mapMutations } from 'vuex'
       description: '',
       descriptionRules: [
         v => !!v || 'Description is required',
-        v => (v && v.length <= 300) || 'Description must be less than 300 characters',
+        v => (v && v.length <= 3000) || 'Description must be less than 300 characters',
       ],
     //   email: '',
     //   emailRules: [
@@ -166,52 +175,48 @@ import { mapState, mapActions, mapMutations } from 'vuex'
         return (val > 0 || 'Price must be not less than or equal to zero.')
       },
       quantity: 0,
-      new_arrival: true,
-      remarks:'',
-      previewPhoto: null,
+      previewPhoto: '',
       photo: null,
       checkbox: false,
     }),
     computed: {
       ...mapState({
-            // flashMessage: state => state.snackbar.flashMessage,
-            // snackbarShow: state => state.snackbar.snackbarShow,
-            // products: state => state.product.products,
             categories: state => state.category.categories,
         })
     },
     created () {
       this.getCategories()
+      this.previewPhoto = this.product.image_url
     },
     methods: {
       onFileChange(e) {
         //  const file = e.target.files[0];
-       this.photo = e
+       this.product.photo = e
        this.previewPhoto = URL.createObjectURL(e)
      },
 
-      saveProduct () {
+      updateProduct () {
 
          let formData = new FormData()
-
-         formData.append('photo', this.photo)
-         formData.append('new_arrival', Number(this.new_arrival))
-         formData.append('name', this.name)
-         formData.append('description', this.description)
-         formData.append('category_id', this.category_id)
-         formData.append('unit', this.unit)
-         formData.append('unit_price', this.unit_price)
-         formData.append('selling_price', this.selling_price)
-         formData.append('quantity', this.quantity)
+         formData.append('id', this.product.id)
+         formData.append('photo', this.product.photo)
+         formData.append('new_arrival', Number(this.product.new_arrival))
+         formData.append('name', this.product.name)
+         formData.append('description', this.product.description)
+         formData.append('category_id', this.product.category_id)
+         formData.append('unit', this.product.unit)
+         formData.append('unit_price', this.product.unit_price)
+         formData.append('selling_price', this.product.selling_price)
+         formData.append('quantity', this.product.quantity)
          formData.append('status', 'A')
-         formData.append('remarks', this.remarks)
-         formData.append('created_by', 1)
+         formData.append('remarks', this.product.remarks)
+         formData.append('_method', 'PUT')
+         //formData.append('created_by', 1)
          formData.append('updated_by', 1)
-         this.$emit('saveProductClicked', formData)
+         console.log('formData', this.product)
+         this.$emit('updateProductClicked', formData)
       },
       ...mapActions('category', ['getCategories']),
-     // ...mapActions('product', ['createProduct']),
-      //...mapMutations('snackbar', ['SHOw_FLASH_MESSAGE'])
     },
         
     }

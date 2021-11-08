@@ -43,7 +43,10 @@
               vida porta. Lorem ipsum dolor sit amet, cons
               ectetur adipiscing elit.
             </p>
-            <v-btn class="mt-4">
+            <v-btn
+              class="mt-4"
+              :to="{name: 'Category'}"
+            >
               Shop Now
             </v-btn>
           </v-col>

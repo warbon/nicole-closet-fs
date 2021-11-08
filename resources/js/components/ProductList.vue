@@ -44,6 +44,8 @@
           :sort-by="['name']"
           :sort-desc="[true]"
           multi-sort
+          single-expand
+          show-expand
           class="pa-0"
         >
           <template #item.actions="{ item }">
@@ -54,6 +56,7 @@
               min-width="0"
               small
               text
+              @click="editProduct(item.id)"
             >
               <v-icon>mdi-pencil-outline</v-icon>
             </v-btn>
@@ -69,20 +72,17 @@
               <v-icon>mdi-trash-can-outline</v-icon>
             </v-btn>
           </template>
+
+          <template #expanded-item="{ item }">
+            <td
+              :colspan="headers.length"
+            >
+              <product-show :product="item" />
+            </td>
+          </template>
         </v-data-table>
       </v-card-text>
     </v-card>
-    <!-- <v-snackbar
-      v-model="snackbar"
-      :type="snackbarColor"
-      :timeout="snackbarTimeout"
-      v-bind="{
-        [parsedDirection[0]]: true,
-        [parsedDirection[1]]: true
-      }"
-    >
-      {{ snackbarMsg }}
-    </v-snackbar> -->
     <v-dialog
       v-model="confirmDelete"
       max-width="290"
@@ -118,7 +118,7 @@
 <script>
 //   import api from '@/util/api'
 //   import { showSnackBar } from '@/util/helpers'
-  import { mapActions, mapState } from 'vuex'
+  import { mapState } from 'vuex'
 
   export default {
     name: 'ProductList',
@@ -162,9 +162,9 @@
           text: 'Actions',
           value: 'actions',
         },
+        { text: '', value: 'data-table-expand' },
       ],
-    //   products: [],
-    //   categories: [],
+      expanded: [],
       search: undefined,
       snackbar: false,
       snackbarColor: 'info',
@@ -175,24 +175,20 @@
       idToDestroy: null,
     }),
     computed: {
-    //   parsedDirection () {
-    //     return this.direction.split(' ')
-    //   },
-        ...mapState({
-            flashMessage: state => state.snackbar.flashMessage,
-            products: state => state.product.products,
-            categories: state => state.category.categories,
-        })
+      ...mapState({
+          products: state => state.product.products,
+          categories: state => state.category.categories,
+      })
     },
     created () {
-        this.getCategories()
-        this.getProducts()
-    //   if (Object.keys(this.flashMessage).length > 0) {
-    //     showSnackBar(this, this.flashMessage.message, this.flashMessage.color, 8)
-    //     this.destroyFlashMessage()
-    //   }
+        // this.getCategories()
+        // this.getProducts()
+        console.log('Products', this.products)
     },
     methods: {
+       editProduct (id) {
+        this.$emit('editProductClicked', id)
+      },
       destroyProduct () {
         this.confirmDelete = false
         this.$emit('deleteProductClicked', this.idToDestroy)
@@ -201,9 +197,9 @@
         this.idToDestroy = id
         this.confirmDelete = true
       },
-        ...mapActions('snackbar', ['destroyFlashMessage']),
-        ...mapActions('product', ['getProducts', 'deleteProduct']),
-        ...mapActions('category', ['getCategories']),
+       // ...mapActions('snackbar', ['destroyFlashMessage']),
+       // ...mapActions('product', ['getProducts', 'deleteProduct']),
+      //  ...mapActions('category', ['getCategories']),
     },
   }
 </script>

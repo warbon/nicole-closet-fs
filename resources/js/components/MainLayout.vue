@@ -6,7 +6,7 @@
     <v-app-bar
       app
       absolute
-      color="#FF80AB"
+      color="#F8BBD0"
       dark
       shrink-on-scroll
       prominent
@@ -40,6 +40,20 @@
         <v-icon>mdi-heart</v-icon>
       </v-btn> -->
 
+      <v-btn 
+        icon
+        dark
+      >
+        <v-badge
+          color="green"
+          content="6"
+          overlap
+        >
+          <v-icon>
+            mdi-cart-outline
+          </v-icon>
+        </v-badge>
+      </v-btn>
       <v-btn 
         icon
         :to="{ name: 'Products' }"

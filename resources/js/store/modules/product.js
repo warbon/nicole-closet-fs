@@ -7,9 +7,9 @@ const state = {
 }
 
 const getters = {
-    // clients: state => state.clients.map(c => ({
-    //     ...c, fullName: c.first_name + ' ' + c.last_name,
-    // })),
+    newArrivalProducts: state => state.products.filter((p) => {
+      return p.new_arrival
+    })
 }
 
 const mutations = {
@@ -29,26 +29,24 @@ const actions = {
     await axios.get('api/products')
             .then((response) => {
                commit('SET_PRODUCTS', response.data.data)
-               console.log('Products', response.data.data)
             })
             .catch((error) => {
               console.log(error)
             })
   },
-  async getProduct ({ commit }, id) {
-    await axios.get('api/products/' + id)
-            .then((response) => {
-               commit('SET_PRODUCT', response.data.data)
-               console.log('Product', response.data.data)
-            })
-            .catch((error) => {
-              console.log(error)
-            })
+  getProduct ( { commit }, id) {
+    return new Promise((resolve, reject) => {
+      axios.get('api/products/' + id)
+        .then((response) => {
+          resolve(response)
+        })
+        .catch((error) => {
+          reject(error)
+        })
+    })
   },
   createProduct ({ commit }, { formData, config }) {
     return new Promise((resolve, reject) => {
-      console.log('formData', formData)
-      console.log('Config', config)
       axios.post('api/products', formData, config)
         .then((response) => {
           resolve(response)
@@ -58,9 +56,10 @@ const actions = {
         })
     })
   },
-  updateProduct ({ commit }, product) {
+  updateProduct ({ commit },{ formData, config }) {
+    //console.log('formData', formData)
     return new Promise((resolve, reject) => {
-      axios.put('api/products/' + product.id, product)
+      axios.post('api/products/' + formData.get('id'), formData, config)
         .then((response) => {
           resolve(response)
         })

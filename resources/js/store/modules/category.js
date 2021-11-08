@@ -29,7 +29,6 @@ const actions = {
     await axios.get('api/categories')
             .then((response) => {
                commit('SET_CATEGORIES', response.data.data)
-               console.log('Categories', response.data.data)
             })
             .catch((error) => {
               console.log(error)
@@ -39,7 +38,6 @@ const actions = {
     await axios.get('api/categories/' + id)
             .then((response) => {
                commit('SET_CATEGORY', response.data.data)
-               console.log('Category', response.data.data)
             })
             .catch((error) => {
               console.log(error)
