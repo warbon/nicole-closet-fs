@@ -1,5 +1,5 @@
-//import api from '@/util/api'
-import axios from "axios"
+import api from "../../utils/api"
+//import axios from "axios"
 
 const state = {
   products: [],
@@ -26,7 +26,7 @@ const mutations = {
 
 const actions = {
   async getProducts ({ commit }) {
-    await axios.get('api/products')
+    await api.get('api/products')
             .then((response) => {
                commit('SET_PRODUCTS', response.data.data)
             })
@@ -36,7 +36,7 @@ const actions = {
   },
   getProduct ( { commit }, id) {
     return new Promise((resolve, reject) => {
-      axios.get('api/products/' + id)
+      api.get('api/products/' + id)
         .then((response) => {
           resolve(response)
         })
@@ -47,7 +47,7 @@ const actions = {
   },
   createProduct ({ commit }, { formData, config }) {
     return new Promise((resolve, reject) => {
-      axios.post('api/products', formData, config)
+      api.post('api/products', formData, config)
         .then((response) => {
           resolve(response)
         })
@@ -59,7 +59,7 @@ const actions = {
   updateProduct ({ commit },{ formData, config }) {
     //console.log('formData', formData)
     return new Promise((resolve, reject) => {
-      axios.post('api/products/' + formData.get('id'), formData, config)
+      api.post('api/products/' + formData.get('id'), formData, config)
         .then((response) => {
           resolve(response)
         })
@@ -70,7 +70,7 @@ const actions = {
   },
   deleteProduct ({ commit }, id) {
     return new Promise((resolve, reject) => {
-      axios.delete('api/products/' + id)
+      api.delete('api/products/' + id)
         .then((response) => {
           resolve(response)
         })

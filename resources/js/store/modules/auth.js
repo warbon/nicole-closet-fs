@@ -1,4 +1,4 @@
-import api from '@utils/api'
+import api from '../../utils/api'
 
 const state = {
   token: localStorage.getItem('access_token') || null,
@@ -77,7 +77,8 @@ const actions = {
   },
   login ({ commit }, data) {
     return new Promise((resolve, reject) => {
-      api.post('oauth/token', data, { baseURL: process.env.VUE_APP_BASE_URL })
+      // console.log('login data', data)
+      api.post('oauth/token', data)
         .then(response => {
           const token = response.data.access_token
           localStorage.setItem('access_token', token)
@@ -90,6 +91,21 @@ const actions = {
         })
     })
   },
+  // login ({ commit }, data) {
+  //   return new Promise((resolve, reject) => {
+  //     api.post('oauth/token', data, { baseURL: process.env.VUE_APP_BASE_URL })
+  //       .then(response => {
+  //         const token = response.data.access_token
+  //         localStorage.setItem('access_token', token)
+  //         commit('SET_TOKEN', token)
+  //         resolve(response)
+  //       })
+  //       .catch(error => {
+  //         console.log('auth.js login', error)
+  //         reject(error)
+  //       })
+  //   })
+  // },
   getUser ({ commit }) {
     return new Promise((resolve, reject) => {
       api.get('user')
