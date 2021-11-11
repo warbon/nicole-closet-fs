@@ -3044,6 +3044,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'MainLayout',
   data: function data() {
@@ -44265,7 +44266,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "v-app",
-    { staticStyle: { height: "100px" }, attrs: { id: "inspire" } },
+    { staticStyle: { height: "200px" }, attrs: { id: "inspire" } },
     [
       _c(
         "v-app-bar",
@@ -44377,13 +44378,7 @@ var render = function () {
           staticStyle: { height: "500px" },
           attrs: { id: "scrolling-techniques-3" },
         },
-        [
-          _c(
-            "v-container",
-            [_c("router-view", { key: _vm.$route.fullPath })],
-            1
-          ),
-        ],
+        [_c("v-container", { staticClass: "pt-15" }, [_c("router-view")], 1)],
         1
       ),
     ],

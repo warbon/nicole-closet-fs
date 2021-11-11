@@ -96,8 +96,9 @@
       class="overflow-y-auto"
       style="height:500px"
     >
-      <v-container>
-        <router-view :key="$route.fullPath" />
+      <v-container class="pt-15">
+          <router-view />
+        <!-- <router-view :key="$route.fullPath" /> -->
       </v-container>
     </v-main>
   </v-app>
