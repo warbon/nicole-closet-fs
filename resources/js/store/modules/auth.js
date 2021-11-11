@@ -63,7 +63,7 @@ const actions = {
   logout ({ state, dispatch, getters }) {
     if (getters.isAuthenticated) {
       return new Promise((resolve, reject) => {
-        api.post('logout')
+        api.post('api/logout')
           .then((response) => {
             dispatch('clearToken')
             resolve(response)

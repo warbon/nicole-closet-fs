@@ -54,12 +54,13 @@
           </v-icon>
         </v-badge>
       </v-btn>
-      <v-btn 
+      <!-- <v-btn 
         icon
         :to="{ name: 'Products' }"
       >
         <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+      </v-btn> -->
+      <account-menu />
 
       <!-- <v-avatar
         :color="$vuetify.breakpoint.smAndDown ? 'grey darken-1' : 'transparent'"
@@ -103,6 +104,7 @@
 </template>
 
 <script>
+
   export default {
     name: 'MainLayout',
     data: () => ({

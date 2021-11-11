@@ -145,7 +145,7 @@
         //   }
         // },
         data: () => ({
-            product: {},
+            product: { category_info : { name: '' } },
             quantity: 1
         }),
         async created () {
