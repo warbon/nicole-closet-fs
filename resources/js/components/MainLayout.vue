@@ -54,12 +54,13 @@
           </v-icon>
         </v-badge>
       </v-btn>
-      <v-btn 
+      <!-- <v-btn 
         icon
         :to="{ name: 'Products' }"
       >
         <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+      </v-btn> -->
+      <account-menu />
 
       <!-- <v-avatar
         :color="$vuetify.breakpoint.smAndDown ? 'grey darken-1' : 'transparent'"
@@ -95,14 +96,16 @@
       class="overflow-y-auto"
       style="height:500px"
     >
-      <v-container>
-        <router-view :key="$route.fullPath" />
+      <v-container class="pt-15">
+          <router-view />
+        <!-- <router-view :key="$route.fullPath" /> -->
       </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script>
+
   export default {
     name: 'MainLayout',
     data: () => ({

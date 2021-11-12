@@ -1,5 +1,5 @@
-//import api from '@/util/api'
-import axios from "axios"
+ import api from '../../utils/api'
+// import axios from "axios"
 
 const state = {
   categories: [],
@@ -26,7 +26,7 @@ const mutations = {
 
 const actions = {
   async getCategories ({ commit }) {
-    await axios.get('api/categories')
+    await api.get('api/categories')
             .then((response) => {
                commit('SET_CATEGORIES', response.data.data)
             })
@@ -35,7 +35,7 @@ const actions = {
             })
   },
   async getCategory ({ commit }, id) {
-    await axios.get('api/categories/' + id)
+    await api.get('api/categories/' + id)
             .then((response) => {
                commit('SET_CATEGORY', response.data.data)
             })
@@ -45,7 +45,7 @@ const actions = {
   },
   createCategory ({ commit }, category) {
     return new Promise((resolve, reject) => {
-      axios.post('api/categories', category)
+      api.post('api/categories', category)
         .then((response) => {
           resolve(response)
         })
@@ -56,7 +56,7 @@ const actions = {
   },
   updateCategory ({ commit }, category) {
     return new Promise((resolve, reject) => {
-      axios.put('api/categories/' + category.id, category)
+      api.put('api/categories/' + category.id, category)
         .then((response) => {
           resolve(response)
         })
@@ -67,7 +67,7 @@ const actions = {
   },
   deleteCategory ({ commit }, id) {
     return new Promise((resolve, reject) => {
-      axios.delete('api/categories/' + id)
+      api.delete('api/categories/' + id)
         .then((response) => {
           resolve(response)
         })

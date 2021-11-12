@@ -125,6 +125,7 @@
 
     data: () => ({
       headers: [
+         { text: '', value: 'data-table-expand' },
         {
           text: 'Name',
           value: 'name',
@@ -162,7 +163,6 @@
           text: 'Actions',
           value: 'actions',
         },
-        { text: '', value: 'data-table-expand' },
       ],
       expanded: [],
       search: undefined,
