@@ -3063,6 +3063,11 @@ __webpack_require__.r(__webpack_exports__);
         routeName: 'About'
       }]
     };
+  },
+  mounted: function mounted() {
+    this.$fbCustomerChat.setOptions({
+      theme_color: '#41B883'
+    });
   }
 });
 
@@ -4548,7 +4553,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./router */ "./resources/js/router/index.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store */ "./resources/js/store/index.js");
 /* harmony import */ var _plugins_vuetify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./plugins/vuetify */ "./resources/js/plugins/vuetify.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue_fb_customer_chat__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-fb-customer-chat */ "./node_modules/vue-fb-customer-chat/dist/vue-fb-customer-chat.umd.js");
+/* harmony import */ var vue_fb_customer_chat__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_fb_customer_chat__WEBPACK_IMPORTED_MODULE_4__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -4562,6 +4569,12 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js"
 
 
 
+
+vue__WEBPACK_IMPORTED_MODULE_5__["default"].use((vue_fb_customer_chat__WEBPACK_IMPORTED_MODULE_4___default()), {
+  page_id: 102124132295851,
+  theme_color: '#2c3e50',
+  locale: 'en_US'
+});
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -4573,7 +4586,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js"
 var files = __webpack_require__("./resources/js sync recursive \\.vue$/");
 
 files.keys().map(function (key) {
-  return vue__WEBPACK_IMPORTED_MODULE_4__["default"].component(key.split('/').pop().split('.')[0], files(key)["default"]);
+  return vue__WEBPACK_IMPORTED_MODULE_5__["default"].component(key.split('/').pop().split('.')[0], files(key)["default"]);
 }); // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /**
@@ -4583,7 +4596,7 @@ files.keys().map(function (key) {
  * 
  */
 
-new vue__WEBPACK_IMPORTED_MODULE_4__["default"]({
+new vue__WEBPACK_IMPORTED_MODULE_5__["default"]({
   router: _router__WEBPACK_IMPORTED_MODULE_1__["default"],
   store: _store__WEBPACK_IMPORTED_MODULE_2__["default"],
   vuetify: _plugins_vuetify__WEBPACK_IMPORTED_MODULE_3__["default"],
@@ -41997,6 +42010,17 @@ module.exports = function (list, options) {
 
 /***/ }),
 
+/***/ "./node_modules/vue-fb-customer-chat/dist/vue-fb-customer-chat.umd.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/vue-fb-customer-chat/dist/vue-fb-customer-chat.umd.js ***!
+  \****************************************************************************/
+/***/ (function(module) {
+
+!function(e,t){ true?module.exports=t():0}(this,function(){"use strict";function n(i){for(var e=1;e<arguments.length;e++){var r=null!=arguments[e]?arguments[e]:{},t=Object.keys(r);"function"==typeof Object.getOwnPropertySymbols&&(t=t.concat(Object.getOwnPropertySymbols(r).filter(function(e){return Object.getOwnPropertyDescriptor(r,e).enumerable}))),t.forEach(function(e){var t,n,o;t=i,o=r[n=e],n in t?Object.defineProperty(t,n,{value:o,enumerable:!0,configurable:!0,writable:!0}):t[n]=o})}return i}var o="en_us";function i(t){return new Promise(function(e){window.FB?e(window.FB):function(e){var c=e.locale?e.locale:o;return new Promise(function(r,u){!function(e,t,n){var o=e.getElementsByTagName(t)[0];if(!e.getElementById(n)){var i=e.createElement(t);i.id=n,i.src="https://connect.facebook.net/"+c+"/sdk/xfbml.customerchat.js",o.parentNode.insertBefore(i,o),i.onload=function(){r()},i.onerror=function(){u()}}}(document,"script","facebook-jssdk")})}(t).then(function(){(function(t){return new Promise(function(e){window.fbAsyncInit=function(){t=n({},{cookie:!0,xfbml:!0,version:"v5.0"},t),window.FB.init(t),e()}})})(t).then(function(){e(window.FB)})})})}var e={install:function(e,t){e.fbCustomerChat={setOptions:function(e){t=n({},t,e)}},Object.defineProperties(e.prototype,{$fbCustomerChat:{get:function(){return e.fbCustomerChat}}}),e.mixin({mounted:function(){this.$parent||i(t).then(function(){t.page_id&&function(e){var t=document.createElement("div");t.setAttribute("class","fb-customerchat"),t.setAttribute("attribution","setup_tool"),Object.entries(e).forEach(function(e){t.setAttribute(e[0],e[1])}),document.body.appendChild(t)}(t)})}})}};return"undefined"!=typeof window&&window.Vue&&(window.VueFbCustomerChat=e),e});
+
+
+/***/ }),
+
 /***/ "./resources/js/App.vue":
 /*!******************************!*\
   !*** ./resources/js/App.vue ***!
@@ -44266,7 +44290,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "v-app",
-    { staticStyle: { height: "200px" }, attrs: { id: "inspire" } },
+    { staticStyle: { height: "100px" }, attrs: { id: "inspire" } },
     [
       _c(
         "v-app-bar",

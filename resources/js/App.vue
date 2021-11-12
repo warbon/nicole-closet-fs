@@ -15,7 +15,7 @@ import MainLayout from './components/MainLayout.vue'
 
   export default {
     name: 'App',
-  components: { MainLayout },
+    components: { MainLayout },
     metaInfo: {
       title: 'Nicole Closet',
       // titleTemplate: '%s | Dashboard',
