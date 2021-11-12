@@ -116,5 +116,11 @@
         { name: 'About Us', routeName: 'About'}
       ],
     }),
+    mounted() {
+      this.$fbCustomerChat.setOptions({
+        theme_color: '#41B883'
+      })
+
+    }
   }
 </script>

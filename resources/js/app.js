@@ -13,6 +13,13 @@ import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
 import Vue from 'vue';
+import VueFbCustomerChat from 'vue-fb-customer-chat'
+
+Vue.use(VueFbCustomerChat, {
+    page_id: 102124132295851,
+    theme_color: '#2c3e50',
+    locale: 'en_US'
+  })
 
 /**
  * The following block of code may be used to automatically register your
