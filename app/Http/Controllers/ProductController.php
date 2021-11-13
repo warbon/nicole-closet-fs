@@ -51,7 +51,7 @@ class ProductController extends Controller
                 Response::HTTP_UNPROCESSABLE_ENTITY
             );
         }
-        Log::info($request);
+        //Log::info($request);
         // $file_name = time().'_'.$request->photo->getClientOriginalName();
         $file_name = $request->photo->getClientOriginalName();
         $file_path = $request->photo->storeAs('uploads', $file_name, 'public');
@@ -93,8 +93,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        Log::info($request);
-        Log::info($product);
+        //Log::info($request);
+        //Log::info($product);
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'category_id' => 'required'
