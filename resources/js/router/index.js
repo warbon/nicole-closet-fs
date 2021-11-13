@@ -69,16 +69,16 @@ const router = new Router({
   ],
 })
 
-// router.beforeEach((to, from, next) => {
-//   if (to.matched.some(m => m.meta.requiresAuth) && !store.getters['auth/isAuthenticated']) {
-//     next({ name: 'Login' })
-//   } 
-//   // else if (to.matched.some(m => m.meta.requiresVisitor) && store.getters['auth/isAuthenticated']) {
-//   //   next({ name: 'Dashboard' })
-//   // } 
-//   else {
-//     return to.path.endsWith('/') ? next() : next(trailingSlash(to.path))
-//   }
-// })
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(m => m.meta.requiresAuth) && !store.getters['auth/isAuthenticated']) {
+    next({ name: 'Login' })
+  } 
+  // else if (to.matched.some(m => m.meta.requiresVisitor) && store.getters['auth/isAuthenticated']) {
+  //   next({ name: 'Dashboard' })
+  // } 
+  else {
+    return to.path.endsWith('/') ? next() : next(trailingSlash(to.path))
+  }
+})
 
 export default router

@@ -2886,7 +2886,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         password: this.password,
         grant_type: "password",
         client_id: "2",
-        client_secret: "5poe6TY6gjMBF1u0SWgBE3xVHPj9QNDuRfPyTsGj"
+        client_secret: "12Dx3LkcQkFHR1jD28P2sn4YBhbIbUnDtnwSbv2R"
       };
     }
   }, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)('auth', ['token'])), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('auth', ['isAuthenticated'])),
@@ -4763,18 +4763,21 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_11__["default"]({
     path: '*',
     component: _components_Error_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
   }]
-}); // router.beforeEach((to, from, next) => {
-//   if (to.matched.some(m => m.meta.requiresAuth) && !store.getters['auth/isAuthenticated']) {
-//     next({ name: 'Login' })
-//   } 
-//   // else if (to.matched.some(m => m.meta.requiresVisitor) && store.getters['auth/isAuthenticated']) {
-//   //   next({ name: 'Dashboard' })
-//   // } 
-//   else {
-//     return to.path.endsWith('/') ? next() : next(trailingSlash(to.path))
-//   }
-// })
-
+});
+router.beforeEach(function (to, from, next) {
+  if (to.matched.some(function (m) {
+    return m.meta.requiresAuth;
+  }) && !_store__WEBPACK_IMPORTED_MODULE_0__["default"].getters["auth/isAuthenticated"]) {
+    next({
+      name: 'Login'
+    });
+  } // else if (to.matched.some(m => m.meta.requiresVisitor) && store.getters['auth/isAuthenticated']) {
+  //   next({ name: 'Dashboard' })
+  // } 
+  else {
+    return to.path.endsWith('/') ? next() : next((0,_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.trailingSlash)(to.path));
+  }
+});
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
 
 /***/ }),
