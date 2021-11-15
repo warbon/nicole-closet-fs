@@ -29,10 +29,10 @@ Route::middleware('auth:api')->group(function () {
    Route::post('logout', [AuthController::class, 'logout']);
 
    // Category
-   Route::apiResource('categories', CategoryController::class)->only(['create', 'update', 'delete']);
+   Route::apiResource('categories', CategoryController::class)->only(['store', 'update', 'destroy']);
 
    // Product
-   Route::apiResource('products', ProductController::class)->only(['create', 'update', 'delete']);
+   Route::apiResource('products', ProductController::class)->only(['store', 'update', 'destroy']);
 
 });
 

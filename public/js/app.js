@@ -2886,7 +2886,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         password: this.password,
         grant_type: "password",
         client_id: "2",
-        client_secret: "12Dx3LkcQkFHR1jD28P2sn4YBhbIbUnDtnwSbv2R"
+        client_secret: "0mU6XR60jzunHyZJmQdHHodwvKxVjaWDn6PJksLl"
       };
     }
   }, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)('auth', ['token'])), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('auth', ['isAuthenticated'])),
