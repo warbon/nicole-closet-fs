@@ -3066,7 +3066,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.$fbCustomerChat.setOptions({
-      theme_color: '#41B883'
+      theme_color: '#F8BBD0'
     });
   }
 });
@@ -4572,7 +4572,8 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js"
 
 vue__WEBPACK_IMPORTED_MODULE_5__["default"].use((vue_fb_customer_chat__WEBPACK_IMPORTED_MODULE_4___default()), {
   page_id: 102124132295851,
-  theme_color: '#2c3e50',
+  // theme_color: '#2c3e50',
+  theme_color: '#F8BBD0',
   locale: 'en_US'
 });
 /**
