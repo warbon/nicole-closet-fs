@@ -118,7 +118,7 @@
     }),
     mounted() {
       this.$fbCustomerChat.setOptions({
-        theme_color: '#41B883'
+        theme_color: '#F8BBD0'
       })
 
     }
