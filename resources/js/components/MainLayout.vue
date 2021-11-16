@@ -100,6 +100,7 @@
           <router-view />
         <!-- <router-view :key="$route.fullPath" /> -->
       </v-container>
+        <app-footer />
     </v-main>
   </v-app>
 </template>
