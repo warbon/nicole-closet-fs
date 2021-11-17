@@ -51,11 +51,23 @@ class ProductController extends Controller
                 Response::HTTP_UNPROCESSABLE_ENTITY
             );
         }
-        //Log::info($request);
+        // Log::info();
         // $file_name = time().'_'.$request->photo->getClientOriginalName();
-        $file_name = $request->photo->getClientOriginalName();
-        $file_path = $request->photo->storeAs('uploads', $file_name, 'public');
-        $request['image_url'] = 'storage/'.$file_path;
+        
+        // Store in local storage
+        // $file_name = $request->photo->getClientOriginalName();
+        // $file_path = $request->photo->storeAs('uploads', $file_name, 'public');
+        // $request['image_url'] = 'storage/'.$file_path;
+
+        // Store in cloud storage
+
+        $file_name=$request->photo->getClientOriginalName();
+        // $file_path = 'uploads/' . $file_name;
+        $file_path = $request->photo->storeAs('uploads', $file_name, 'felix');
+        // Storage::disk('felix')->put($file_path, file_get_contents($request->photo));
+        $request['image_url'] = $file_path;
+
+
         $result = Product::create($request->all());
 
         return response()->json(

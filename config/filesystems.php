@@ -48,9 +48,20 @@ return [
             'secret' => env('AWS_SECRET_ACCESS_KEY'),
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
-            'url' => env('AWS_URL'),
-            'endpoint' => env('AWS_ENDPOINT'),
+            // 'url' => env('AWS_URL'),
+            // 'endpoint' => env('AWS_ENDPOINT'),
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
+        ],
+
+        'felix' => [
+            'driver' => 's3',
+            'key' => env('FELIX_AWS_ACCESS_KEY_ID'),
+            'secret' => env('FELIX_AWS_SECRET_ACCESS_KEY'),
+            'arn' => env('FELIX_AWS_USER_ARN'),
+            'region' => env('FELIX_AWS_DEFAULT_REGION'),
+            'bucket' => env('FELIX_AWS_BUCKET'),
+            'email' => env('FELIX_USER_EMAIL'),
+            'password' => env('FELIX_USER_PASSWORD'),
         ],
 
     ],
