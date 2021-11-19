@@ -16,6 +16,7 @@
               height="450"
             >
               <v-img
+                contain
                 :src="product.image_url"
                 height="200px"
                 class="ma-2"

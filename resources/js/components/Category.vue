@@ -19,13 +19,14 @@
           >
             <v-hover v-slot="{ hover }">
               <v-card
-                class="mx-auto"
+                class="mx-5"
                 :class="{ 'on-hover': hover }"
                 :elevation="hover ? 12 : 2"
                 max-width="344"
                 height="400"
               >
                 <v-img
+                  contain
                   :src="product.image_url"
                   height="200px"
                   class="ma-2"

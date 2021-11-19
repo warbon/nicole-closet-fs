@@ -1,48 +1,36 @@
 <template>
   <v-app
     id="inspire"
-    style="height: 100px;"
   >
     <v-app-bar
       app
-      absolute
-      color="#F8BBD0"
-      dark
+      color="white"
       shrink-on-scroll
-      prominent
-      src="../nicole-closet.png"
-      fade-img-on-scroll
-      scroll-target="#scrolling-techniques-3"
+      light
+      elevate-on-scroll
     >
-      <template #img="{ props }">
+      <!-- <template #img="{ props }">
         <v-img
           v-bind="props"
           gradient="to top right, rgba(100,115,201,.4), rgba(25,32,72,.4)"
         />
-      </template>
+      </template> -->
 
       <v-app-bar-nav-icon />
 
       <v-spacer />
       
       <v-toolbar-title>
-        <h2 class="font-weight-light">
+        <!-- <h2 class="font-weight-light">
           Nicole's Closet
-        </h2>
+        </h2> -->
+        <v-img src="logo.png" />
       </v-toolbar-title>
 
       <v-spacer />
-      <!-- <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn> -->
 
       <v-btn 
         icon
-        dark
       >
         <v-badge
           color="green"
@@ -54,12 +42,7 @@
           </v-icon>
         </v-badge>
       </v-btn>
-      <!-- <v-btn 
-        icon
-        :to="{ name: 'Products' }"
-      >
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn> -->
+
       <account-menu />
 
       <!-- <v-avatar
@@ -71,6 +54,7 @@
         <v-tabs
           centered
           class="ml-n9"
+          color="pink lighten-4"
         >
           <v-tab
             v-for="link in links"
@@ -82,8 +66,6 @@
         </v-tabs>
       </template>
 
-     
-
       <!-- <v-avatar
         class="hidden-sm-and-down"
         color="grey darken-1 shrink"
@@ -91,12 +73,8 @@
       ></v-avatar> -->
     </v-app-bar>
 
-    <v-main
-      id="scrolling-techniques-3"
-      class="overflow-y-auto"
-      style="height:500px"
-    >
-      <v-container class="pt-15">
+    <v-main>
+      <v-container class="pt-5" fluid>
           <router-view />
         <!-- <router-view :key="$route.fullPath" /> -->
       </v-container>

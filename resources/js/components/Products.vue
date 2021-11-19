@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-container>
     <v-card flat>
       <v-card-title>
         Product Management
@@ -49,7 +49,7 @@
         </v-btn>
       </template>
     </v-snackbar>
-  </div>
+  </v-container>
 </template>
 
 <script>
